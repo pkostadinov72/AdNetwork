@@ -1,0 +1,51 @@
+{
+  "name": "post-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint . --fix",
+    "format": "prettier --write .",
+    "test": "jest"
+  },
+  "prettier": "@myorg/shared/prettier-config",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-errors": "^3.0.0",
+    "ajv-formats": "^3.0.1",
+    "amqplib": "^0.10.7",
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.7",
+    "http-errors": "^2.0.0",
+    "koa": "^2.16.0",
+    "koa-body": "^6.0.1",
+    "koa-router": "^13.0.1",
+    "lodash": "^4.17.21",
+    "pg": "^8.14.1",
+    "typeorm": "^0.3.21"
+  },
+  "devDependencies": {
+    "@myorg/shared": "1.0.0",
+    "@types/amqplib": "^0.10.7",
+    "@types/jest": "^29.5.14",
+    "@types/koa": "^2.15.0",
+    "@types/koa-router": "^7.4.8",
+    "@types/lodash": "^4.17.16",
+    "@types/node": "^22.13.14",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.3.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.2"
+  }
+}

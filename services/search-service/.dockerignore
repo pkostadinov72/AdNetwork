@@ -1,0 +1,4 @@
+dist
+.env
+typesense-data
+.DS_Store

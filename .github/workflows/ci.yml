@@ -1,0 +1,41 @@
+name: CI - Lint, Format, Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend-ci:
+    name: Lint and Test Backend Services
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        service: [post-service, user-service, asset-service, search-service]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install all dependencies from root
+        run: npm install --workspaces
+
+      - name: Lint
+        run: npm run lint
+        working-directory: ./services/${{ matrix.service }}
+
+      - name: Format
+        run: npm run format
+        working-directory: ./services/${{ matrix.service }}
+
+      - name: Run Unit Tests
+        if: matrix.service == 'post-service' || matrix.service == 'user-service'
+        run: npm run test
+        working-directory: ./services/${{ matrix.service }}
